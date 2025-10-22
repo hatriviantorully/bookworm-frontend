@@ -1,4 +1,4 @@
-echo 'services:
+services:
   - type: web
     name: bookworm-backend
     env: node
