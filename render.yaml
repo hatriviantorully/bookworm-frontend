@@ -10,4 +10,14 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000' > render.yaml
+        value: 10000
+      - key: MONGO_URI
+        value: your_mongodb_production_uri
+      - key: JWT_SECRET
+        value: your_jwt_secret_here
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dfltak207
+      - key: CLOUDINARY_API_KEY
+        value: 268595332421484
+      - key: CLOUDINARY_API_SECRET
+        value: RT4lCjrwcjCJyPx_kqT5_C5YoDU
