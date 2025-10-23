@@ -13,43 +13,45 @@ import { connectDB } from "./lib/db.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 🔥 PERBAIKAN CORS - tambahkan ini:
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:8081",
+  "https://bookworm-frontend.onrender.com",
+];
+
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Izinkan semua origin dalam development
-      const allowedOrigins = [
-        "http://localhost:8081",
-        "exp://localhost:8081",
-        "http://10.146.205.241:8081",
-        "exp://10.146.205.241:8081",
-        "http://localhost:19006",
-        "exp://localhost:19006",
-      ];
-      // Izinkan requests tanpa origin (mobile apps, postman, dll)
-      if (!origin) return callback(null, true);
-
+    origin: (origin, callback) => {
       if (
-        allowedOrigins.indexOf(origin) !== -1 ||
-        origin.includes("localhost") ||
-        origin.includes("10.146.205.241")
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith("onrender.com")
       ) {
         callback(null, true);
       } else {
-        console.log("CORS blocked for origin:", origin);
+        console.log("❌ Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Accept",
-      "X-Requested-With",
-    ],
   })
 );
+
+// // 🔥 PERBAIKAN CORS - tambahkan ini:
+// // ✅ Ganti konfigurasi CORS agar mendukung lokal dan produksi
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173", // frontend local (Vite)
+//       "http://localhost:8081", // mobile Expo
+//       "https://bookworm-frontend.onrender.com", // Render frontend
+//       "https://bookworm-app-v2.onrender.com", // Render backend (self-origin test)
+//     ],
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 // Handle preflight requests
 app.options("*", cors());
