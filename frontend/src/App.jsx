@@ -1,14 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import { testConnection } from "./api";
 
 function App() {
- useEffect(() => {
+  console.log(" ✅ Frontend Connected");
+  useEffect(() => {
     testConnection();
   }, []);
 
-  return (
-    <h1>Frontend Connected ✅</h1>
-  );
+  return <h1>Frontend Connected ✅</h1>;
 }
 
 export default App;
