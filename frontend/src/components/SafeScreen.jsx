@@ -1,5 +1,4 @@
 // frontend/src/components/SafeScreen.jsx
-import React from "react";
 
 export default function SafeScreen({ children, style }) {
   return (

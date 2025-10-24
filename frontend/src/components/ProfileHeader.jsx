@@ -1,8 +1,7 @@
 // src/components/ProfileHeader.jsx
-import React from "react";
+
 import { useAuthStore } from "../store/authStore";
 import { formatMemberSince } from "../lib/utils";
-import "../assets/styles/profile.css"; // pastikan style sesuai
 
 export default function ProfileHeader() {
   const { user } = useAuthStore();

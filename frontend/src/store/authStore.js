@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { storage } from "../lib/storage"; // frontend web
-import { API_URL } from "../constants/api";
+import { API_URL } from "../api/api";
 import toast from "react-hot-toast";
 
 async function _verifyToken(token) {

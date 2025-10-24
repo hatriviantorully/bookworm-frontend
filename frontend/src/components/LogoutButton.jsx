@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FiLogOut } from "react-icons/fi";
 import COLORS from "../constants/colors";
-import "../assets/styles/profile.css"; // pastikan ada style
 
 export default function LogoutButton() {
   const { logout } = useAuthStore();

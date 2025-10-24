@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaRegStar, FaBook, FaTrash } from "react-icons/fa";
 import { useAuthStore } from "../store/authStore";
-import { API_URL } from "../constants/api";
+import { API_URL } from "../api/api";
 import Loader from "../components/Loader";
 import ProfileHeader from "../components/ProfileHeader";
 import LogoutButton from "../components/LogoutButton";
-import "../assets/styles/profile.css";
 
 export default function ProfilePage() {
   const [books, setBooks] = useState([]);

@@ -1,5 +1,5 @@
 // frontend/src/api/authService.js
-import { API_URL } from "../constants/api"; // Menyesuaikan URL base API
+import { API_URL } from "../api/api"; // Menyesuaikan URL base API
 
 // Utility untuk parsing JSON
 async function parseJSON(response) {

@@ -2,10 +2,9 @@ import { useEffect, useState, useCallback } from "react";
 import { FaStar, FaRegStar, FaBook } from "react-icons/fa";
 import { testBooksEndpoint } from "../api/authService";
 import { useAuthStore } from "../store/authStore";
-import { API_URL } from "../constants/api";
+import { API_URL } from "../api/api";
 import Loader from "../components/Loader";
 import { formatPublishDate } from "../lib/utils";
-import "../assets/styles/home.css";
 
 export default function HomePage() {
   const { token } = useAuthStore();

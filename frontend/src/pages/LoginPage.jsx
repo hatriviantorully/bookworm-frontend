@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useAuthStore } from "../../store/authStore";
+import { useAuthStore } from "../store/authStore";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaBook, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import COLORS from "../../constants/colors";
-import "../../assets/styles/login.css";
+import COLORS from "../constants/colors";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
