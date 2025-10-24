@@ -22,24 +22,6 @@ export default function ProfilePage() {
     });
   }, [token, user]);
 
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(`${API_URL}/api/books/user`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-      if (!res.ok)
-        throw new Error(data.message || "Failed to fetch user books");
-      setBooks(data);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load profile data. Try refreshing the page.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {

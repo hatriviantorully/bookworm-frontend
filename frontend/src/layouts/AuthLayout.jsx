@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import COLORS from "../constants/colors";
-import "../assets/styles/authLayout.css";
 
 export default function AuthLayout() {
   return (
