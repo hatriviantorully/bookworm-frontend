@@ -14,22 +14,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:8081",
-  "https://bookworm-frontend.onrender.com",
+  "http://localhost:5173", // untuk local dev
+  "https://bookworm-frontend-tnvo.onrender.com", // untuk versi Render
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (
-        !origin ||
-        allowedOrigins.includes(origin) ||
-        origin.endsWith("onrender.com")
-      ) {
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.log("❌ Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
