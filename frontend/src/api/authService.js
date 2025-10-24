@@ -49,3 +49,15 @@ export async function loginUser({ email, password }) {
   const data = await parseJSON(res);
   return { status: res.status, ok: res.ok, data };
 }
+
+export const testBooksEndpoint = async () => {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/books`);
+    const data = await res.json();
+    console.log("✅ Books endpoint test success:", data);
+    return data;
+  } catch (error) {
+    console.error("❌ Books endpoint test failed:", error);
+    throw error;
+  }
+};
